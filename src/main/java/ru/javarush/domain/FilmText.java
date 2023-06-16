@@ -2,7 +2,7 @@ package ru.javarush.domain;
 
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(schema = "movie", name = "film_text")

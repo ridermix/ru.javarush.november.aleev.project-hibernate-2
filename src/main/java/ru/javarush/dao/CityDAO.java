@@ -13,7 +13,7 @@ public class CityDAO extends GenericDAO<City>  {
     }
 
     public City getByName(String name) {
-        Query<City> query = getCurrentSession().createQuery("SELECT c FROM city c WHERE c.city = :NAME", City.class);
+        Query<City> query = getCurrentSession().createQuery("SELECT c FROM City c WHERE c.city = :NAME", City.class);
         query.setParameter("NAME", name);
         query.setMaxResults(1);
         return query.getSingleResult();
