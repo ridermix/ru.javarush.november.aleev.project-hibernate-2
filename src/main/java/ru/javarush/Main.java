@@ -1,5 +1,6 @@
 package ru.javarush;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
@@ -72,5 +73,34 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
 
+        Customer customer = main.createCustomer();
+
+    }
+
+    private Customer createCustomer() {
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            Store store = storeDAO.getItems(0, 1).get(0);
+            City city = cityDAO.getByName("Basel");
+            Address address = new Address();
+            address.setAddress("Street str, 1");
+            address.setPhone("111-222-333");
+            address.setCity(city);
+            address.setDistrict("Central");
+            addressDAO.save(address);
+
+            Customer customer = new Customer();
+            customer.setActive(true);
+            customer.setAddress(address);
+            customer.setStore(store);
+            customer.setFirstName("Ivan");
+            customer.setLastName("Ivanov");
+            customer.setEmail("mail@mail.ru");
+            customerDAO.save(customer);
+
+            session.getTransaction().commit();
+
+            return customer;
+        }
     }
 }

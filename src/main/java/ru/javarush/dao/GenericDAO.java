@@ -1,10 +1,10 @@
 package ru.javarush.dao;
 
-import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
+import jakarta.persistence.Query;
 import java.util.List;
+
 
 
 public abstract class GenericDAO<T> {

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="ru.javarush.november.aleev.project-hibernate-2:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ru_javarush_november_aleev_project_hibernate_2_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ru.javarush.november.aleev.project-hibernate-2/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="ru.javarush.november.aleev.project-hibernate-2:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>
